@@ -61,14 +61,14 @@
                     <li><a href="data_admin.php"><i class="fa fa-laptop"></i> Data Admin <span class="label label-success pull-right"></span></a></li>
                     <li><a href="data_jabatan.php"><i class="fa fa-laptop"></i> Data Jabatan <span class="label label-success pull-right"></span></a></li>
                     <li><a href="data_golongan.php"><i class="fa fa-laptop"></i> Data Golongan <span class="label label-success pull-right"></span></a></li>
-                    <li><a href="pegawai.php"><i class="fa fa-laptop"></i> Pegawai <span class="label label-success pull-right"></span></a></li>
-                    <li><a href="kehadiran_pegawai.php"><i class="fa fa-laptop"></i> Kehadiran Pegawai <span class="label label-success pull-right"> </span></a></li>
-                    <li><a href="gaji_pegawai"><i class="fa fa-laptop"></i> Gaji Pegawai<span class="label label-success pull-right"> </span></a></li>
+                    <li><a href="pegawai.php"><i class="fa fa-laptop"></i> Data Pegawai <span class="label label-success pull-right"></span></a></li>
+                    <li><a href="data_kehadiran.php"><i class="fa fa-laptop"></i> Data Kehadiran <span class="label label-success pull-right"> </span></a></li>
+                    <li><a href="data_penggajian.php"><i class="fa fa-laptop"></i> Data Penggajian<span class="label label-success pull-right"> </span></a></li>
                     <li><a><i class="fa fa-bar-chart-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="laporan_jabatan.php">Laporan Data Jabatan</a></li>
-                      <li><a href="report_data_golongan.php">Laporan Data Golongan</a></li>
-                      <li><a href="report_data_pegawai.php">Laporan Data Pegawai</a></li>
+                      <li><a href="laporan_golongan.php">Laporan Data Golongan</a></li>
+                      <li><a href="laporan_pegawai.php">Laporan Data Pegawai</a></li>
                       <li><a href="/">ECharts</a></li>
                       <li><a href="other_charts.html">Other Charts</a></li>
                     </ul>

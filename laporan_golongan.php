@@ -28,10 +28,10 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Laporan Data Jabatan</h2>
+                    <h2>Laporan Data Golongan</h2>
                     <div class="no-print">
                     <ul class="nav navbar-right panel_toolbox">
-                      <a href="laporan_jabatan.php" class="btn btn-primary" align='right' onclick="window.print();">Cetak/Print</a>
+                      <a href="laporan_golongan.php" class="btn btn-primary" align='right' onclick="window.print();">Cetak/Print</a>
                     </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -42,9 +42,12 @@
                         <tr>
                           <th>No</th>
                           <th>Kode</th>
-                          <th>Nama Jabatan</th>
-                          <th>Gaji Pokok</th>
-                          <th>Tunjangan Jabatan</th>
+                          <th>Nama Golongan</th>
+                          <th>Tunj. Suami/Istri</th>
+                          <th>Tunj. Anak</th>
+                          <th>Uang Makan</th>
+                          <th>UangLembur</th>
+                          <th>Askes</th>
                         </tr>
                       </thead>
 
@@ -52,21 +55,25 @@
                       <?php
                       include "connect.php";
                       include "fungsi.php";
-                        $sql = mysqli_query($connect, "SELECT * FROM jabatan ORDER BY kode_jabatan ASC");
+                        $sql = mysqli_query($connect, "SELECT * FROM golongan ORDER BY kode_golongan ASC");
                         $no = 1;
                         while($d = mysqli_fetch_array($sql)) {
                             echo "<tr>
                                 <td align='center' width='40px'>$no</td>
-                                <td>$d[kode_jabatan]</td>
-                                <td>$d[nama_jabatan]</td>
-                                <td>".rupiah($d['gaji_pokok'])."</td>
-                                <td>".rupiah($d['tunjangan_jabatan'])."</td>
+                                <td>$d[kode_golongan]</td>
+                                <td>$d[nama_golongan]</td>
+                                <td>".rupiah($d['tunjangan_suami_istri'])."</td>
+                                <td>".rupiah($d['tunjangan_anak'])."
+                                </td>
+                                <td>".rupiah($d['uang_makan'])."</td>
+                                <td>".rupiah($d['uang_lembur'])."</td>
+                                <td>".rupiah($d['askes'])."</td>
                             </tr>";
                             $no++;
                         }
 
                         if(mysqli_num_rows($sql) < 1 ) {
-                            echo"<tr><td colspan='7'>There is no data...</td></tr>";
+                            echo"<tr><td colspan='8'>There is no data...</td></tr>";
                         }
                         ?>
                       </tbody>
@@ -84,7 +91,7 @@
                             <br>
                             <br>
                             <p>__________________________</p>
-                            <p>Husna Nurarifah</p>
+                            <p>Annisa Monitha</p>
                         </td>
                     </tr>
                 </table>

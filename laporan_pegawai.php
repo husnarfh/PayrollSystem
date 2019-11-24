@@ -28,7 +28,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Laporan Data Jabatan</h2>
+                    <h2>Laporan Data Pegawai</h2>
                     <div class="no-print">
                     <ul class="nav navbar-right panel_toolbox">
                       <a href="laporan_jabatan.php" class="btn btn-primary" align='right' onclick="window.print();">Cetak/Print</a>
@@ -41,26 +41,35 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Kode</th>
-                          <th>Nama Jabatan</th>
-                          <th>Gaji Pokok</th>
-                          <th>Tunjangan Jabatan</th>
+                          <th>NIP</th>
+                          <th>Nama Pegawai</th>
+                          <th>Jabatan</th>
+                          <th>Golongan</th>
+                          <th>Status</th>
+                          <th>Jumlah Anak</th>
                         </tr>
                       </thead>
 
                       <tbody>
+                      
                       <?php
                       include "connect.php";
                       include "fungsi.php";
-                        $sql = mysqli_query($connect, "SELECT * FROM jabatan ORDER BY kode_jabatan ASC");
+
+                        $sql = mysqli_query($connect, "SELECT pegawai.*, golongan.nama_golongan, jabatan.nama_jabatan FROM pegawai 
+                          INNER JOIN jabatan ON pegawai.kode_jabatan=jabatan.kode_jabatan
+                          INNER JOIN golongan ON pegawai.kode_golongan=golongan.kode_golongan
+                          ORDER BY golongan.nama_golongan DESC");
                         $no = 1;
                         while($d = mysqli_fetch_array($sql)) {
                             echo "<tr>
                                 <td align='center' width='40px'>$no</td>
-                                <td>$d[kode_jabatan]</td>
+                                <td>$d[nip]</td>
+                                <td>$d[nama_pegawai]</td>
                                 <td>$d[nama_jabatan]</td>
-                                <td>".rupiah($d['gaji_pokok'])."</td>
-                                <td>".rupiah($d['tunjangan_jabatan'])."</td>
+                                <td>$d[nama_golongan]</td>
+                                <td>$d[status]</td>
+                                <td>$d[jumlah_anak] Orang</td>
                             </tr>";
                             $no++;
                         }
@@ -69,6 +78,7 @@
                             echo"<tr><td colspan='7'>There is no data...</td></tr>";
                         }
                         ?>
+
                       </tbody>
                     </table>
                     <table width="100%">
@@ -84,7 +94,7 @@
                             <br>
                             <br>
                             <p>__________________________</p>
-                            <p>Husna Nurarifah</p>
+                            <p>Annisa Monitha</p>
                         </td>
                     </tr>
                 </table>
