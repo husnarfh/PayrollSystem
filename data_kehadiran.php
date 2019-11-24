@@ -12,7 +12,7 @@ switch($view){
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data Kehadiran Pegawai</h3>
+                <h3>PT. ELPINKEU</h3>
               </div>
               <div class="title_right">
                 <div class="col-md-5 col-sm-5  form-group pull-right top_search">
@@ -30,7 +30,7 @@ switch($view){
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Tabel</h2>
+                    <h2>Data Kehadiran Pegawai</h2>
                     <div class="clearfix"></div>
                   </div>
                   <form class="form-inline" method="get" action="">
@@ -82,7 +82,7 @@ switch($view){
                     ?>
 
                 <div class="alert alert-info">
-                  <strong>Bulan : <?php echo $bulan; ?>, Tahun : <?php echo $tahun; ?> </stronh>
+                  <strong>Bulan : <?php echo $bulan; ?>, Tahun : <?php echo $tahun; ?> </strong>
                 </div>
 
                  <div class="x_content">
