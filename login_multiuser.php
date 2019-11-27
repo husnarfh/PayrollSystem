@@ -23,7 +23,7 @@
 			min-height: 100%;
 		}
 	body{
-		background: url(assets/img/bg.jpg) no-repeat center fixed;
+		background: url(assets/img/back.png) no-repeat center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -49,7 +49,7 @@
 				</div>
 				<div class="panel body">
 				<center> 
-					<img src="assets/img/logo.png" class="img-circle" alt"Logo" width=120px>
+					<img src="assets/img/ini.png" class="img-circle" alt"Logo" width=120px>
 				</center>
 				<hr>
 				<?php
@@ -77,7 +77,7 @@
 							$_SESSION['id'] = $r['idadmin'];
 							$_SESSION['username'] = $r['username'];
 							$_SESSION['namalengkap'] = $r['namalengkap'];
-							header('Location:dashboard.php');
+							header('Location:data_admin.php');
 						 
 						}elseif ($hitung_pegawai >= 1){
 							$r = mysqli_fetch_array($pegawai);
@@ -86,7 +86,7 @@
 							$_SESSION['level']    = 'pegawai';
 							$_SESSION['nip'] = $r['nip'];
 							$_SESSION['nama_pegawai'] = $r['nama_pegawai'];
-							header('Location:dashboard_pegawai.php');
+							header('Location:data_pegawai.php');
 						 
 						}else{
 							?>
