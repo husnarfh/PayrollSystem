@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include "header_pegawai.php"; ?>
 
 <!-- page content -->
 <?php
@@ -25,21 +25,25 @@ switch($view){
                   </div>
                   <div class="x_content">
                     <table class="table">
-                      
-                            <td>Nama Lengkap
-                        </td>
-                      
+                      <tr>
+                            <td>NIP</td>
+                            <td>Nama Lengkap</td>
+                            <td>Status</td>
+                      </tr>
                       <tbody>
                       <?php
                     include "connect.php";
-                    $sql = mysqli_query($connect, "SELECT * FROM admin");
+                    $id = $_SESSION['nip'];
+                    $sql = mysqli_query($connect, "SELECT * FROM pegawai WHERE nip=$id");
                     
                     while($d=mysqli_fetch_array($sql)){
                         echo"<tr>";
-                        echo"<td>". $d['namalengkap'] ."</td>";
+                        echo"<td>". $d['nip'] ."</td>";
+                        echo"<td>". $d['nama_pegawai'] ."</td>";
+                        echo"<td>". $d['status'] ."</td>";
                         echo"<td>";
                         echo
-                        "<a class='btn btn-warning btn-sm' href='data_admin.php?view=edit&id=$d[idadmin]'>Edit</a>";
+                        "<a class='btn btn-warning btn-sm' href='data_pegawai.php?view=edit&id=$d[nip]'>Edit</a>";
                         echo"</td>";
                         echo"</tr>";
                     }
@@ -53,14 +57,15 @@ switch($view){
 include "connect.php";
     break;
     case "edit";
-        $sqlEdit = mysqli_query($connect, "SELECT * FROM admin");
+        $id = $_SESSION['nip'];
+        $sqlEdit = mysqli_query($connect, "SELECT * FROM pegawai WHERE nip=$id");
         $edit = mysqli_fetch_array($sqlEdit);
 ?>
 <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data Admin</h3>
+                <h3>Profil</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -73,22 +78,30 @@ include "connect.php";
                   </div>
                   <div class="x_content">
                     <br />
-                    <form action="edit_data_admin.php?act=update" method="post">
+                    <form action="edit_data_user.php?act=update" method="post">
 
                         <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="namapegawai">Nama Admin<span class="required">*</span>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_pegawai">Nama Lengkap<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                          <input type="text" name="namalengkap" required="required" class="form-control" value="<?php echo $edit['namalengkap']; ?>">
+                          <input type="text" name="nama_pegawai" required="required" class="form-control" value="<?php echo $edit['nama_pegawai']; ?>">
+                        </div>
+                        </div>
+                        <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                          <input type="text" name="password" required="required" class="form-control">
                         </div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="item form-group">
                         <div class="col-md-6 col-sm-6 offset-md-3">
                             <input type="submit" class="btn btn-primary" value="Update">
-                            <a class="btn btn-danger" href="data_admin.php">Back</a>
+                            <a class="btn btn-danger" href="data_pegawai.php">Back</a>
                         </div>
                       </div>
+
     </form>
 <?php
     break;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2019 at 10:25 AM
+-- Generation Time: Nov 27, 2019 at 11:18 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idadmin`, `username`, `password`, `namalengkap`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Nadiem m');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Nadiem Makarim');
 
 -- --------------------------------------------------------
 
@@ -58,6 +58,13 @@ CREATE TABLE `golongan` (
   `askes` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `golongan`
+--
+
+INSERT INTO `golongan` (`kode_golongan`, `nama_golongan`, `tunjangan_suami_istri`, `tunjangan_anak`, `uang_makan`, `uang_lembur`, `askes`) VALUES
+('G01', 'Atas', 7000000, 2000000, 500000, 250000, 300000);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +77,15 @@ CREATE TABLE `jabatan` (
   `gaji_pokok` int(10) NOT NULL,
   `tunjangan_jabatan` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jabatan`
+--
+
+INSERT INTO `jabatan` (`kode_jabatan`, `nama_jabatan`, `gaji_pokok`, `tunjangan_jabatan`) VALUES
+('01', 'Direktur', 5000000, 7000000),
+('02', 'Manager', 4000000, 5000000),
+('04', 'Staff', 3000000, 4000000);
 
 -- --------------------------------------------------------
 
@@ -88,6 +104,14 @@ CREATE TABLE `master_gaji` (
   `potongan` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `master_gaji`
+--
+
+INSERT INTO `master_gaji` (`bulan`, `nip`, `masuk`, `sakit`, `izin`, `alpha`, `lembur`, `potongan`) VALUES
+('112019', '14045', 1, 0, 0, 0, 1, 0),
+('112019', '982000', 1, 0, 0, 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -96,12 +120,21 @@ CREATE TABLE `master_gaji` (
 
 CREATE TABLE `pegawai` (
   `nip` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `nama_pegawai` varchar(40) NOT NULL,
   `kode_jabatan` varchar(3) NOT NULL,
   `kode_golongan` varchar(3) NOT NULL,
   `status` varchar(15) NOT NULL,
   `jumlah_anak` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`nip`, `password`, `nama_pegawai`, `kode_jabatan`, `kode_golongan`, `status`, `jumlah_anak`) VALUES
+('14045', '312f91285e048e09bb4aefef23627994', 'Riana', '01', 'G01', 'belum menikah', 0),
+('982000', 'fa23517aa1adfaab707494340009a330', 'Husna Nurarifah', '02', 'G01', 'Menikah', 2);
 
 --
 -- Indexes for dumped tables

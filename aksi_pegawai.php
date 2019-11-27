@@ -9,6 +9,7 @@ if(!isset($_SESSION['login'])){
 if(isset($_GET['act'])){
     if($_GET['act']=='insert'){
         $nip = $_POST['nip'];
+        $password = $_POST['password'];
         $name = $_POST['namapegawai'];
         $jabatan = $_POST['jabatan'];
         $golongan = $_POST['golongan'];
@@ -16,8 +17,8 @@ if(isset($_GET['act'])){
         $jmlanak = $_POST['jumlahanak'];
        
         $save = mysqli_query($connect, "INSERT INTO pegawai(
-            nip, nama_pegawai, kode_jabatan, kode_golongan, status, jumlah_anak) VALUES (
-            '$nip','$name','$jabatan','$golongan','$status','$jmlanak')");
+            nip, password, nama_pegawai, kode_jabatan, kode_golongan, status, jumlah_anak) VALUES (
+            '$nip',md5('$password'),'$name','$jabatan','$golongan','$status','$jmlanak')");
         if($save){
            header('location:pegawai.php?e=success');
         }

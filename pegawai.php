@@ -119,6 +119,13 @@ switch($view){
                         </div>
                       </div>
                       <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="nip">Password<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                          <input type="text" name="password" required="required" class="form-control">
+                        </div>
+                      </div>
+                      <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="namapegawai">Nama Pegawai<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">

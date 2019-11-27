@@ -56,23 +56,11 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>Menu</h3>
                 <ul class="nav side-menu">
-                    <li><a href="data_admin.php"><i class="fa fa-laptop"></i> Data Admin <span class="label label-success pull-right"></span></a></li>
-                    <li><a href="data_jabatan.php"><i class="fa fa-laptop"></i> Data Jabatan <span class="label label-success pull-right"></span></a></li>
-                    <li><a href="data_golongan.php"><i class="fa fa-laptop"></i> Data Golongan <span class="label label-success pull-right"></span></a></li>
-                    <li><a href="pegawai.php"><i class="fa fa-laptop"></i> Data Pegawai <span class="label label-success pull-right"></span></a></li>
-                    <li><a href="data_kehadiran.php"><i class="fa fa-laptop"></i> Data Kehadiran <span class="label label-success pull-right"> </span></a></li>
-                    <li><a href="data_penggajian.php"><i class="fa fa-laptop"></i> Data Penggajian<span class="label label-success pull-right"> </span></a></li>
-                    <li><a><i class="fa fa-bar-chart-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="laporan_jabatan.php">Laporan Data Jabatan</a></li>
-                      <li><a href="laporan_golongan.php">Laporan Data Golongan</a></li>
-                      <li><a href="laporan_pegawai.php">Laporan Data Pegawai</a></li>
-
-                    </ul>
-                  </li>
-                  <li><a href="/"><i class="fa fa-laptop"></i> Settings <span class="label label-success pull-right"></span></a></li>
+                    <li><a href="data_pegawai.php"><i class="fa fa-laptop"></i> Profile <span class="label label-success pull-right"></span></a></li>
+                    <li><a href="data_kehadiran_user.php"><i class="fa fa-laptop"></i> Data Kehadiran <span class="label label-success pull-right"> </span></a></li>
+                    <li><a href="data_penggajian_user.php"><i class="fa fa-laptop"></i> Data Penggajian<span class="label label-success pull-right"> </span></a></li>
                 </ul>
               </div>
 
@@ -91,7 +79,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Admin
+                    <img src="images/img.jpg" alt=""><?php session_start(); echo $_SESSION['nama_pegawai']; ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item"  href="javascript:;">Help</a>
